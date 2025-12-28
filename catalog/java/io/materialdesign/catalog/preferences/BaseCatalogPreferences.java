@@ -42,5 +42,5 @@ public abstract class BaseCatalogPreferences {
    * the targeting Catalog version.
    */
   @NonNull
-  protected abstract ImmutableList<CatalogPreference> getPreferences();
+  public abstract ImmutableList<CatalogPreference> getPreferences();
 }

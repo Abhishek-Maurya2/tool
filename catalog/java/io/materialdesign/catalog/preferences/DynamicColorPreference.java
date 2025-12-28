@@ -57,7 +57,7 @@ public class DynamicColorPreference extends CatalogPreference {
   }
 
   @Override
-  protected boolean isEnabled() {
+  public boolean isEnabled() {
     return DynamicColors.isDynamicColorAvailable();
   }
 
