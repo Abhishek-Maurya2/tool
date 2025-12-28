@@ -49,7 +49,8 @@ public class UpdateManager {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 if (!response.isSuccessful()) {
-                    callback.onError("Failed to check for updates: " + response.code());
+                    String errorBody = response.body() != null ? response.body().string() : "No error body";
+                    callback.onError("Failed to check for updates (" + response.code() + "): " + errorBody);
                     return;
                 }
 
