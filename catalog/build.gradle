@@ -180,6 +180,7 @@ android {
   }
   buildFeatures {
     compose true
+    buildConfig true
   }
   androidResources {
     additionalParameters '--no-version-vectors'
