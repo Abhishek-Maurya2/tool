@@ -23,6 +23,7 @@ import androidx.fragment.app.Fragment;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import androidx.annotation.NonNull;
 import com.google.common.base.Optional;
 import dagger.BindsOptionalOf;
 import dagger.android.ContributesAndroidInjector;
