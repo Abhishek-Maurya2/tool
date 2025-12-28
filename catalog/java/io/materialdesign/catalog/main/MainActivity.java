@@ -56,31 +56,57 @@ public class MainActivity extends BaseCatalogActivity {
     setContentView(R.layout.cat_main_activity);
 
     com.google.android.material.bottomnavigation.BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
-    bottomNav.setOnNavigationItemSelectedListener(new com.google.android.material.bottomnavigation.BottomNavigationView.OnNavigationItemSelectedListener() {
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            Fragment selectedFragment = null;
-            if (item.getItemId() == R.id.action_home) {
-                if (tocFragment == null) {
-                    tocFragment = new TocFragment();
-                }
-                selectedFragment = tocFragment;
-            } else if (item.getItemId() == R.id.action_settings) {
-                selectedFragment = new io.materialdesign.catalog.settings.SettingsFragment();
-            }
+    com.google.android.material.navigationrail.NavigationRailView navRail = findViewById(R.id.navigation_rail);
 
-            if (selectedFragment != null) {
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, selectedFragment).commit();
-                return true;
-            }
-            return false;
-        }
-    });
+    // Determine screen size/orientation for adaptive nav
+    boolean isWideScreen = getResources().getConfiguration().screenWidthDp >= 600;
+
+    if (isWideScreen) {
+        bottomNav.setVisibility(View.GONE);
+        navRail.setVisibility(View.VISIBLE);
+        setupNavigation(navRail);
+    } else {
+        bottomNav.setVisibility(View.VISIBLE);
+        navRail.setVisibility(View.GONE);
+        setupNavigation(bottomNav);
+    }
 
     if (savedInstanceState == null) {
-      tocFragment = new TocFragment();
-      getSupportFragmentManager().beginTransaction().add(R.id.container, tocFragment).commit();
+      // Default to Tasks
+      Fragment tasksFragment = new io.materialdesign.catalog.tasks.TasksFragment();
+      getSupportFragmentManager().beginTransaction().add(R.id.container, tasksFragment).commit();
+      
+      // Update selected item
+      if (isWideScreen) {
+          navRail.setSelectedItemId(R.id.action_tasks);
+      } else {
+          bottomNav.setSelectedItemId(R.id.action_tasks);
+      }
     }
+  }
+
+  private void setupNavigation(com.google.android.material.navigation.NavigationBarView navigationView) {
+      navigationView.setOnItemSelectedListener(item -> {
+          Fragment selectedFragment = null;
+          int itemId = item.getItemId();
+          
+          if (itemId == R.id.action_tasks) {
+              selectedFragment = new io.materialdesign.catalog.tasks.TasksFragment();
+          } else if (itemId == R.id.action_home) {
+              if (tocFragment == null) {
+                  tocFragment = new TocFragment();
+              }
+              selectedFragment = tocFragment;
+          } else if (itemId == R.id.action_settings) {
+              selectedFragment = new io.materialdesign.catalog.settings.SettingsFragment();
+          }
+
+          if (selectedFragment != null) {
+              getSupportFragmentManager().beginTransaction().replace(R.id.container, selectedFragment).commit();
+              return true;
+          }
+          return false;
+      });
   }
 
   @Override

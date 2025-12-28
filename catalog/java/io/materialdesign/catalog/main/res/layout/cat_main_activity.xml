@@ -20,10 +20,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.google.android.material.navigationrail.NavigationRailView
+        android:id="@+id/navigation_rail"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:visibility="gone"
+        app:menu="@menu/cat_bottom_nav_menu"
+        app:headerLayout="@layout/cat_navigation_rail_header" />
+
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_toEndOf="@id/navigation_rail"
         android:layout_above="@+id/bottom_navigation" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

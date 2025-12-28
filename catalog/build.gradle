@@ -116,6 +116,7 @@ def srcDirs = [
   'slider',
   'tableofcontents',
   'tabs',
+  'tasks',
   'textfield',
   'themeswitcher',
   'timepicker',
