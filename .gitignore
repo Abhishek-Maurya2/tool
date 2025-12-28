@@ -13,6 +13,4 @@
 .externalNativeBuild
 .cxx
 local.properties
-upload-keystore.jks
-keystore_b64.txt
 build_error.log
