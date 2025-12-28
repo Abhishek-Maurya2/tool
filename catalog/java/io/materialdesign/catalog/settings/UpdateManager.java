@@ -22,8 +22,8 @@ public class UpdateManager {
 
     private final Context context;
     private final OkHttpClient client;
-    private static final String GITHUB_REPO_OWNER = "jitendra-pawan-tech"; // Replace with actual owner
-    private static final String GITHUB_REPO_NAME = "Material-Design-Components"; // Replace with actual repo name
+    private static final String GITHUB_REPO_OWNER = "Abhishek-Maurya2";
+    private static final String GITHUB_REPO_NAME = "tool";
 
     public interface UpdateCallback {
         void onUpdateAvailable(String version, String downloadUrl);

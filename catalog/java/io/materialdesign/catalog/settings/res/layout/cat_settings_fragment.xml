@@ -28,6 +28,15 @@
         android:layout_height="wrap_content"
         android:text="Check for Update" />
 
+    <TextView
+        android:id="@+id/new_version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:textAppearance="?attr/textAppearanceBodyLarge"
+        android:textColor="?attr/colorPrimary"
+        android:layout_marginBottom="16dp" />
+
     <ProgressBar
         android:id="@+id/progress_bar"
         android:layout_width="wrap_content"
@@ -41,5 +50,33 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:textAppearance="?attr/textAppearanceBodyMedium"/>
+
+    <LinearLayout
+        android:id="@+id/error_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:layout_marginTop="16dp"
+        android:padding="8dp"
+        android:background="?attr/colorSurfaceVariant">
+
+        <TextView
+            android:id="@+id/error_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            android:textAppearance="?attr/textAppearanceBodySmall"
+            android:fontFamily="monospace" />
+
+        <Button
+            android:id="@+id/btn_copy_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Copy Error"
+            android:layout_gravity="end"
+            style="?attr/materialButtonStyleText"
+            android:layout_marginTop="8dp"/>
+    </LinearLayout>
 
 </LinearLayout>
