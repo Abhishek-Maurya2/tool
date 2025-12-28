@@ -140,6 +140,23 @@ android {
     targetSdkVersion 34
   }
 
+  signingConfigs {
+    release {
+      storeFile file(System.getenv("KEYSTORE_FILE") ?: "keystore.jks")
+      storePassword System.getenv("STORE_PASSWORD")
+      keyAlias System.getenv("KEY_ALIAS")
+      keyPassword System.getenv("KEY_PASSWORD")
+    }
+  }
+
+  buildTypes {
+    release {
+      signingConfig signingConfigs.release
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+  }
+
   testOptions {
     unitTests.returnDefaultValues = true
   }
