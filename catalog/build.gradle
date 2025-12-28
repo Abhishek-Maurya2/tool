@@ -110,6 +110,7 @@ def srcDirs = [
   'progressindicator',
   'radiobutton',
   'search',
+  'settings',
   'shapetheming',
   'sidesheet',
   'slider',
