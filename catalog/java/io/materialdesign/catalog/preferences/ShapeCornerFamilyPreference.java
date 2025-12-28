@@ -63,7 +63,7 @@ public class ShapeCornerFamilyPreference extends CatalogPreference {
 
   @Override
   @NonNull
-  protected ImmutableList<Option> getOptions() {
+  public ImmutableList<Option> getOptions() {
     return OPTIONS;
   }
 

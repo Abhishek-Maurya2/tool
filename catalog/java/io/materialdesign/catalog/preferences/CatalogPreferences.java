@@ -33,7 +33,7 @@ public class CatalogPreferences extends BaseCatalogPreferences {
 
   @Override
   @NonNull
-  protected ImmutableList<CatalogPreference> getPreferences() {
+  public ImmutableList<CatalogPreference> getPreferences() {
     return PREFERENCES;
   }
 }
