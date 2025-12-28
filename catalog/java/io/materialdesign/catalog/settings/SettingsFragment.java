@@ -65,13 +65,13 @@ public class SettingsFragment extends DaggerFragment {
     errorText = view.findViewById(R.id.error_text);
     btnCopyError = view.findViewById(R.id.btn_copy_error);
 
-    setupSettingsItem(itemCheckUpdate, R.drawable.ic_home_black_24dp, "Check for Updates", null);
+    setupSettingsItem(itemCheckUpdate, R.drawable.ic_settings_black_24dp, "Check for Updates", null);
     itemCheckUpdate.setOnClickListener(v -> checkUpdate());
     btnCopyError.setOnClickListener(v -> copyToClipboard(errorText.getText().toString()));
 
     // About Section
     itemAppVersion = view.findViewById(R.id.item_app_version);
-    setupSettingsItem(itemAppVersion, R.drawable.ic_home_black_24dp, "Version", BuildConfig.VERSION_NAME);
+    setupSettingsItem(itemAppVersion, R.drawable.ic_settings_black_24dp, "Version", BuildConfig.VERSION_NAME);
 
     return view;
   }

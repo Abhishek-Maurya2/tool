@@ -104,6 +104,10 @@ public abstract class TocModule {
   @ContributesAndroidInjector
   abstract CatalogPreferencesDialogFragment contributeCatalogPreferencesDialogFragment();
 
+  @FragmentScope
+  @ContributesAndroidInjector
+  abstract io.materialdesign.catalog.settings.SettingsFragment contributeSettingsFragment();
+
   @Provides
   static TocResourceProvider provideTocResourceProvider() {
     return new TocResourceProvider();
