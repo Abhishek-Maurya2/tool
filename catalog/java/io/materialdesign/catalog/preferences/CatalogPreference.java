@@ -112,7 +112,7 @@ public abstract class CatalogPreference {
   /**
    * Override this method and return {@code false} when the preferences settings is not changeable.
    */
-  protected boolean isEnabled() {
+  public boolean isEnabled() {
     return true;
   }
 
@@ -128,7 +128,7 @@ public abstract class CatalogPreference {
    * Returns all available options of the preference.
    */
   @NonNull
-  protected abstract ImmutableList<Option> getOptions();
+  public abstract ImmutableList<Option> getOptions();
 
   /**
    * Returns the default option.
@@ -139,7 +139,7 @@ public abstract class CatalogPreference {
   /**
    * A preference option that can be selected.
    */
-  protected static class Option {
+  public static class Option {
 
     /**
      * ID of the option. Will be used as the saved value in {@link SharedPreferences}.
