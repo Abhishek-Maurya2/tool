@@ -1,0 +1,56 @@
+name: Android Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: "17"
+          distribution: "temurin"
+          cache: gradle
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Decode Keystore
+        run: |
+          echo "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" | base64 --decode > upload-keystore.jks
+
+      - name: Build Release APK
+        run: ./gradlew assembleRelease
+        env:
+          KEYSTORE_FILE: ../upload-keystore.jks
+          KEY_ALIAS: my-key-alias
+          KEY_PASSWORD: 123456
+          STORE_PASSWORD: 123456
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./catalog/build/outputs/apk/release/catalog-release.apk
+          asset_name: catalog-release.apk
+          asset_content_type: application/vnd.android.package-archive
